@@ -3,7 +3,7 @@ node {
         git branch: 'main', credentialsId: 'jenkins_git', url: 'https://github.com/zinchenko-ihor/jenkins_test.git'
     }
     
-    stage("Sending a Doeckerfile to Ansible over ssh"){
+    stage("Sending a Dockerfile to Ansible over ssh"){
         sshagent(['jenkins']) {
           sh 'ssh -o StrictHostKeyChecking=no ubuntu@172.31.31.90'
           sh 'scp /var/lib/jenkins/workspace/pipeline_demo/* ubuntu@172.31.31.90:/home/ubuntu'
